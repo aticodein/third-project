@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-    </head>
-    <body>
-        {% for starters in myHunCuisineDB %}
-            {{starters.starters}}
-        {% endfor %}
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    {% for starters in myHunCuisineDB %}
+         {{starters.starters}}
+    {% endfor %}
+{% endblock %}
