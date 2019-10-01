@@ -5,8 +5,9 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
+
 app.config["MONGO_DBNAME"] = 'myHunCuisine'
-app.config["MONGO_URI"] = 'mongodb+srv://ati_user:Zxcv4542@hungariancuisine-7dmod.mongodb.net/myHunCuisine?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
 
@@ -17,7 +18,8 @@ def get_myHunCuisineDB():
     
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+    
+   app.run(host=os.environ.get('IP'),
+          port=int(os.environ.get('PORT')),
+          debug=True)
             
