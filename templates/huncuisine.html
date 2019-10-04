@@ -5,8 +5,14 @@
          
          {{cousine.ingredients}}
          {{cousine.soup}}
-         
+        
     {% endfor %}
+    
+     {% for cousine in categories %}
+    
+          {{cousine.category_name}}
+    
+     {% endfor %}
     
     
     <ul class="collapsible" data-collapsible="accordion">

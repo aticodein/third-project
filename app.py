@@ -16,14 +16,15 @@ mongo = PyMongo(app)
 def get_myHunCuisineDB():
     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find())
     
-@app.route('/add_category')
-def add_category():
-    return render_template("categories.html", add_category=mongo.db.categories.find())
+@app.route('/categories')
+def get_categories():
+    return render_template("huncuisine.html", get_categories=mongo.db.categories.find())
     
-
 if __name__ == '__main__':
     
    app.run(host=os.environ.get('IP'),
-          port=int(os.environ.get('PORT')),
-          debug=True)
+        port=int(os.environ.get('PORT')),
+        debug=True)
+          
+          
             
