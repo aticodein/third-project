@@ -5,19 +5,17 @@
          
          {{cousine.ingredients}}
          {{cousine.soup}}
+         
         
     {% endfor %}
     
-     {% for cousine in categories %}
+   
+    <H1>Huncuisine site</H1>
     
-          {{cousine.category_name}}
-    
-     {% endfor %}
-    
-    
-    <ul class="collapsible" data-collapsible="accordion">
+    <!---- <ul class="collapsible" data-collapsible="accordion">
         <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drams</i>First</div>
+            <div class="collapsible-header"><i class="material-icons">filter_drams</i>First
+            </div>
             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span>
             </div>
         </li>
@@ -29,7 +27,11 @@
             <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
         </li>
-    </ul>
+    </ul> ----->
     
+    
+    {% for recipe in get_recipes %}
+         {{recipe.recipe_title}}
+    {% endfor %}
     
 {% endblock %}

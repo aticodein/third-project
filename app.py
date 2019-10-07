@@ -14,11 +14,20 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
-    return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find())
-    
+     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find())
+                          
 @app.route('/categories')
 def get_categories():
-    return render_template("huncuisine.html", get_categories=mongo.db.categories.find())
+    return render_template("categories.html", get_categories=mongo.db.categories.find())
+   
+@app.route('/base')
+def get_base():
+    return render_template("base.html")
+    
+@app.route('/recipes')
+def get_recipes():
+    return render_template("recipes.html", get_recipes=mongo.db.recipes.find())    
+   
     
 if __name__ == '__main__':
     
