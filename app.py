@@ -16,10 +16,6 @@ mongo = PyMongo(app)
 def get_myHunCuisineDB():
      return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="rec ing prep")
                           
-@app.route('/categories')
-def get_categories():
-    return render_template("categories.html", get_categories=mongo.db.categories.find(), page_title="Categories")
-   
 @app.route('/base')
 def get_base():
     return render_template("base.html")
@@ -40,6 +36,5 @@ if __name__ == '__main__':
    app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         debug=True)
-          
           
             

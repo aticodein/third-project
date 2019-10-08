@@ -3,7 +3,7 @@
 <h3>{{ page_title }}</h3>
 <div class="row">
     <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s4">
-      <div class="row">
+     <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">local_dining</i>
           <select id="categories" name="category_name">
@@ -47,7 +47,9 @@
         </div>
       </div>
       <div class="row">
-        <a class="waves-effect waves-light btn">submit</a>
+      <button>  
+       <a type="submit" class="waves-effect waves-light btn ">submit</a>
+      </button>
       </div>
     </form>
   </div>
