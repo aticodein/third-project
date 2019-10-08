@@ -1,37 +1,25 @@
-{% extends 'base.html' %}
-{% block content %}
-        
-    {% for cousine in myHunCuisineDB %}
-         
-         {{cousine.ingredients}}
-         {{cousine.soup}}
-         
-        
-    {% endfor %}
-    
-   
-    <H1>Huncuisine site</H1>
-    
-    <!---- <ul class="collapsible" data-collapsible="accordion">
+{% extends 'base.html' %}{% block content %}
+<h3>{{ page_title }}</h3>
+<div class="">
+    <ul class="collapsible col l6" data-collapsible="accordion">
+        {% for cousine in myHunCuisineDB %}
         <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drams</i>First
+            <div class="collapsible-header">
+                <div class="col s3">
+                <i class="material-icons">local_dining</i>
+                </div>
+                <div class="col s6">
+                <strong> {{cousine.recipe_title|upper}} </strong> 
+                </div>
             </div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span>
+            <div class="collapsible-body">
+                <span>
+                    {{cousine.recipe_ingredients|upper}} {{cousine.recipe_preparation}}
+                </span>
             </div>
         </li>
-        <li>
-            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-    </ul> ----->
-    
-    
-    {% for recipe in get_recipes %}
-         {{recipe.recipe_title}}
-    {% endfor %}
-    
+        {% endfor %}
+    </ul>
+</div>
+
 {% endblock %}

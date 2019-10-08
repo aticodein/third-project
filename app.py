@@ -14,20 +14,26 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
-     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find())
+     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="rec ing prep")
                           
 @app.route('/categories')
 def get_categories():
-    return render_template("categories.html", get_categories=mongo.db.categories.find())
+    return render_template("categories.html", get_categories=mongo.db.categories.find(), page_title="Categories")
    
 @app.route('/base')
 def get_base():
     return render_template("base.html")
     
-@app.route('/recipes')
-def get_recipes():
-    return render_template("recipes.html", get_recipes=mongo.db.recipes.find())    
-   
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("addrecipe.html", get_categories=mongo.db.categories.find(), page_title="Add Recipes")
+    
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    myHunCuisineDB = mongo.db.myHunCuisineDB
+    myHunCuisineDB.insert_one(request.form.to_dict())
+    return redirect(url_for('get_myHunCuisineDB'))
+    
     
 if __name__ == '__main__':
     

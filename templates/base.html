@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-  
-    </head>
-    <body>
-        <h2>Hungarian Recipes!!!</h2>
-        <nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body>
+    <h2>Hungarian Recipes</h2>
+    <div class="navbar-fixed">
+        <nav class="collapse, sideNav">
             <ul>
                 <li><a href="/">Huncuisine</a></li>
-                <li><a href="/categories">Categories</a></li>
+                <li><a href="{{ url_for('get_categories')}}">Categories</a></li>
                 <li><a href="/base">Base</a></li>
-                <li><a href="/recipes">Recipes</a></li>
+                <li><a href="{{ url_for('add_recipe')}}">Add Recipes</a></li>
             </ul>
         </nav>
-        {% block content %}
-        
-        {% endblock %}
-        
-        
-        
-        <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript">
-          $(document).ready(function() {
-              $('.collapsible').collapsible();
-          });
-      </script>
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    </body>
+    </div>
+    {% block content %}{% endblock %}
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').material_select();
+            $(".collapsible").collapsible();
+            $(".collapse").sideNav();
+        });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
 </html>
