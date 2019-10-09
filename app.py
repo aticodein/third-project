@@ -30,7 +30,7 @@ def insert_recipe():
     myHunCuisineDB.insert_one(request.form.to_dict())
     return redirect(url_for('get_myHunCuisineDB'))
     
-@app.route('/edit_recipe/<myHunCuisineDB_id>')
+@app.route('/huncuisine/<myHunCuisineDB_id>')
 def edit_recipe(myHunCuisineDB_id):
     the_recipe = mongo.db.myHunCuisineDB.find_one({"_id":ObjectId(myHunCuisineDB_id)})
     all_categories = mongo.db.categories.find()
