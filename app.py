@@ -14,7 +14,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
-     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="rec ing prep")
+     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Recipes")
                           
 @app.route('/base')
 def get_base():
@@ -30,6 +30,12 @@ def insert_recipe():
     myHunCuisineDB.insert_one(request.form.to_dict())
     return redirect(url_for('get_myHunCuisineDB'))
     
+@app.route('/edit_recipe/<myHunCuisineDB_id>')
+def edit_recipe(myHunCuisineDB_id):
+    the_recipe = mongo.db.myHunCuisineDB.find_one({"_id":ObjectId(myHunCuisineDB_id)})
+    all_categories = mongo.db.categories.find()
+    return render_template("editrecipe.html", recipe=the_recipe, categories=all_categories, page_title="Edit Recipes")
+   
     
 if __name__ == '__main__':
     

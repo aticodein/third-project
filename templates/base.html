@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 
 <body>
-    <h2>Hungarian Recipes</h2>
-    <div class="navbar-fixed">
+    <h2 class="center-align">Hungarian Recipes</h2>
+    <div class="navbar-fixed, center-align"">
         <nav class="collapse, sideNav">
             <ul>
-                <li><a href="/">Huncuisine</a></li>
+                <li><a href="/">Recipes</a></li>
                 <li><a href="/base">Base</a></li>
                 <li><a href="{{ url_for('add_recipe')}}">Add Recipes</a></li>
             </ul>
