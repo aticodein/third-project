@@ -1,0 +1,22 @@
+{% extends 'base.html' %}{% block content %}
+<h3 class="center-align">Categories</h3>
+<div class="container">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for category in categories %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s3">
+                <i class="material-icons">local_dining</i>
+                <a href="" class="waves-effect waves-light btn btn_small red">delete</a>
+                <a href="" class="waves-effect waves-light btn btn_small blue">edit</a>
+                </div>
+                <div class="recipe_header col s6">
+                <strong > {{category.category_name|upper}} </strong> 
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
