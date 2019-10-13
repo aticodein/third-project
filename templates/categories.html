@@ -5,11 +5,10 @@
         {% for category in categories %}
         <li>
             <div class="collapsible-header">
-                <div class="col s3">
+                
                 <i class="material-icons">local_dining</i>
                 <a href="" class="waves-effect waves-light btn btn_small red">delete</a>
-                <a href="" class="waves-effect waves-light btn btn_small blue">edit</a>
-                </div>
+                <a href="{{url_for('edit_category', category_id=category._id)}}" class="waves-effect waves-light btn btn_small green">edit</a>
                 <div class="recipe_header col s6">
                 <strong > {{category.category_name|upper}} </strong> 
                 </div>
