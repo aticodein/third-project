@@ -10,7 +10,7 @@
               <option value="{{category_name}}" disabled selected>Choose your course</option>
               {% for cat in get_categories %}
                   {% if cat.category_name == recipe.category_name %}
-                    <option value="{{cat.category_name}}" selected >{cat.category_name|upper}}</option>
+                    <option value="{{cat.category_name}}" selected >{{cat.category_name|upper}}</option>
                   {% else %} 
                     <option value="{{cat.category_name}}">{{cat.category_name|upper}}</option>
                   {% endif %} 

@@ -38,7 +38,7 @@ def insert_recipe():
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.myHunCuisineDB.find_one({"_id":ObjectId(recipe_id)})
-    return render_template('editrecipe.html', recipe=the_recipe, categories=get_categories, page_title="Edit Recipes")
+    return render_template('editrecipe.html', recipe=the_recipe, get_categories=mongo.db.categories.find(), page_title="Edit Recipes")
 
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
@@ -53,7 +53,7 @@ def update_recipe(recipe_id):
     category = mongo.db.categories
     recipe.update( {'_id': ObjectId(recipe_id)},
     {
-        'category_name':request.form.get('get_categories'),
+        'category_name':request.form.get('category_name'),
         'recipe_title':request.form.get('recipe_title'),
         'recipe_ingredients': request.form.get('recipe_ingredients'),
         'recipe_preparation': request.form.get('recipe_preparation'),
@@ -71,7 +71,7 @@ def edit_category(category_id):
     return render_template('editcategory.html',
                            category=mongo.db.categories.find_one(
                            {'_id': ObjectId(category_id)}))
-    
+   
     
 if __name__ == '__main__':
     
