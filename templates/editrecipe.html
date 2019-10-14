@@ -2,12 +2,12 @@
 
 <h3 class="center-align">{{ page_title }}</h3>
 <div class="row">
-    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s4 offset-s4">
+    <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" class="col s4 offset-s4">
      <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">local_dining</i>
           <select id="categories" name="category_name">
-              <option value="" disabled selected>Choose your course</option>
+              <option value="{{category_name}}" disabled selected>Choose your course</option>
               {% for cat in get_categories %}
                   {% if cat.category_name == recipe.category_name %}
                     <option value="{{cat.category_name}}" selected >{cat.category_name|upper}}</option>
