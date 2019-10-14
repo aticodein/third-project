@@ -35,7 +35,7 @@ def insert_recipe():
     myHunCuisineDB.insert_one(request.form.to_dict())
     return redirect(url_for('get_myHunCuisineDB'))
     
-@app.route('/edit_recipe/<recipe_id>', methods=['POST'])
+@app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.myHunCuisineDB.find_one({"_id":ObjectId(recipe_id)})
     return render_template('editrecipe.html', recipe=the_recipe, categories=get_categories, page_title="Edit Recipes")
@@ -54,7 +54,7 @@ def update_recipe(recipe_id):
     recipe.update( {'_id': ObjectId(recipe_id)},
     {
         'category_name':request.form.get('get_categories'),
-        'recipe_name':request.form.get('recipe_title'),
+        'recipe_title':request.form.get('recipe_title'),
         'recipe_ingredients': request.form.get('recipe_ingredients'),
         'recipe_preparation': request.form.get('recipe_preparation'),
         'is_favourite':request.form.get('is_favourite')
