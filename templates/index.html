@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 
-<body>
+<body class="hero-image">
     <h2 class="center-align">Hungarian Recipes</h2>
     <div class="navbar-fixed, center-align">
         <nav class="collapse, sideNav">
@@ -24,7 +24,26 @@
             </ul>
         </nav>
     </div>
+    
+    
     {% block content %}{% endblock %}
+    
+    <h3 class="center-align">{{ page_title }}</h3>
+    <div class="main-image center-align">
+        <img class="" src="https://www.okoskonyha.hu/images/recipes/u/ujhazi-tyukhusleves/normal.jpg" alt="image">
+    </div>
+    
+    <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+    
+    
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">

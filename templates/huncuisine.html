@@ -1,17 +1,17 @@
 {% extends 'base.html' %}{% block content %}
-<h3 class="center-align">{{ page_title }}</h3>
+<h5 class="center-align">For change your recipe click on EDIT</h5>
 <div class="container">
     <ul class="collapsible" data-collapsible="accordion">
         {% for cousine in myHunCuisineDB %}
         <li>
             <div class="collapsible-header">
-                <div class="col s3">
+                <div class="recipe_header col s6">
+                 <strong > {{cousine.recipe_title|upper}} </strong> <br> <img class="postcard-image" src={{cousine.img_url}} alt="image"> 
+                </div>
+                <div class="col s9">
                 <i class="material-icons">local_dining</i>
                 <a href="{{ url_for('delete_recipe', recipe_id=cousine._id)}}" class="waves-effect waves-light btn btn_small red">delete</a>
-                <a href="{{ url_for('edit_recipe', recipe_id=cousine._id)}}" class="waves-effect waves-light btn btn_small blue">edit</a>
-                </div>
-                <div class="recipe_header col s6">
-                <strong > {{cousine.recipe_title|upper}} </strong> 
+                <a href="{{ url_for('edit_recipe', recipe_id=cousine._id)}}" class="waves-effect waves-light btn btn_small blue">edit</a> 
                 </div>
             </div>
             <div class="collapsible-body">
@@ -27,5 +27,6 @@
         {% endfor %}
     </ul>
 </div>
+<h3 class="center-align">{{ page_title }}</h3>
 
 {% endblock %}

@@ -18,29 +18,36 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">edit</i>
-          <input id="recipe_title" name="recipe_title" type="text" class="validate">
+          <input id="recipe_title" name="recipe_title" type="text" class="validate" required>
           <label for="recipe_title">Recipe Title</label>
         </div>
         </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">format_align_left</i>
-          <input type="text" name="recipe_ingredients" id="recipe_ingredients" class="materialize-textarea">
+          <input type="text" name="recipe_ingredients" id="recipe_ingredients" class="materialize-textarea" required>
           <label for="recipe_ingredients">Ingredients</label>
         </div>
         </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">hourglass_empty</i>
-          <input type="text" name="recipe_preparation" id="recipe_preparation" class="materialize-textarea">
+          <input type="text" name="recipe_preparation" id="recipe_preparation" class="materialize-textarea" required>
           <label for="recipe_preparation">Preparation</label>
         </div>
         </div>
       <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">picture_in_picture</i>
+          <input type="text" name="img_url" id="img_url" class="materialize-textarea" required>
+          <label for="recipe_preparation">Your picture URL</label>
+        </div>
+        </div>  
+      <div class="row">
         <!-- Switch -->
         <div class="switch">
           <label>
-            <input id="" name="" type="checkbox">
+            <input id="is_favourite" name="is_favourite" type="checkbox">
             <span class="lever"></span>
             Favourite
           </label>

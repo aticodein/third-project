@@ -15,7 +15,7 @@ mongo = PyMongo(app)
 
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
-     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Recipes")
+     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Edit Recipes")
      
 @app.route('/get_categories')
 def get_categories():
@@ -25,9 +25,17 @@ def get_categories():
 def get_base():
     return render_template("base.html")
     
+@app.route('/index')
+def get_index():
+    return render_template("index.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Main Page")
+    
+@app.route('/recipes')
+def get_recipes():
+    return render_template("recipes.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Recipes")    
+    
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("addrecipe.html", get_categories=mongo.db.categories.find(), page_title="Add Recipes")
+    return render_template("addrecipe.html", get_categories=mongo.db.categories.find(), page_title="Add Your New Recipe")
     
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
@@ -55,6 +63,7 @@ def update_recipe(recipe_id):
     {
         'category_name':request.form.get('category_name'),
         'recipe_title':request.form.get('recipe_title'),
+        'img_url': request.form.get('img_url'),
         'recipe_ingredients': request.form.get('recipe_ingredients'),
         'recipe_preparation': request.form.get('recipe_preparation'),
         'is_favourite':request.form.get('is_favourite')

@@ -10,6 +10,12 @@ body {
     line-height: 24px;
     
 }
+
 .recipe_header {
     margin-top: 10px;
+}
+
+.postcard-image {
+    width: 450px;
+    height: 255px;
 }
