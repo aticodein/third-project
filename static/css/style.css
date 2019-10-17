@@ -4,7 +4,7 @@ body {
 
 .btn_small {
     height: 24px;
-    width: auto;
+    width: 120px;
     margin: 5px 5px;
     padding: 0 0.5em;
     line-height: 24px;
@@ -16,6 +16,11 @@ body {
 }
 
 .postcard-image {
-    width: 450px;
-    height: 256px;
+    width: 430px;
+    height: 236px;
+    padding: 10px;
+}
+
+.brand-logo {
+    padding-left: 10px;
 }

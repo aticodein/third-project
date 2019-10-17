@@ -4,7 +4,7 @@
     <ul class="collapsible col s6" data-collapsible="accordion">
         {% for recipes in myHunCuisineDB %}
         <li>
-            <div class="collapsible-header container">
+            <div class="collapsible-header">
                 <div class="recipe_header col s6">
                  <strong > {{recipes.recipe_title|upper}} </strong> <br> <img class="postcard-image" src={{recipes.img_url}} alt="image"> 
                 </div>

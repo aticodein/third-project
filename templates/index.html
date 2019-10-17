@@ -10,20 +10,31 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
-
-<body class="hero-image">
-    <h2 class="center-align">Hungarian Recipes</h2>
-    <div class="navbar-fixed, center-align">
-        <nav class="collapse, sideNav">
-            <ul>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="" class="brand-logo" class="brand-logo" style="padding-left: 10px;">Hungarian Cuisine</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/index">Home</a></li>
                 <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
-                <li><a href="{{ url_for('get_categories')}}">Categories</a></li>
+                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
                 <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
                 <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
             </ul>
-        </nav>
-    </div>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="/index">Home</a></li>
+                <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
+                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
+                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
+                <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<body class="hero-image">
+    <h2 class="center-align">Hungarian Recipes</h2>
+
     
     
     {% block content %}{% endblock %}
@@ -46,21 +57,13 @@
     
  
     
-    
-    
-    
-    
-    
-    
-    
-    
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('select').material_select();
             $(".collapsible").collapsible();
-            $(".collapse").sideNav();
+            $(".button-collapse").sideNav();
         });
     </script>
     <!-- Compiled and minified JavaScript -->
