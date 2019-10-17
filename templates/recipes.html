@@ -1,5 +1,5 @@
 {% extends 'base.html' %}{% block content %}
-<h5 class="center-align">Recipes</h5>
+<h3 class="center-align">{{ page_title }}</h3>
 <div class="container">
     <ul class="collapsible col s6" data-collapsible="accordion">
         {% for recipes in myHunCuisineDB %}
@@ -18,13 +18,12 @@
                 </span>
                 <br>
                 <span>Preparation: <br>
-                    {{recipes.recipe_preparation|lower}}
+                    {{recipes.recipe_preparation|lower}} {{recipes.is_favourite|lower}}
                 </span>
             </div>
         </li>
         {% endfor %}
     </ul>
 </div>
-<h3 class="center-align">{{ page_title }}</h3>
 
 {% endblock %}

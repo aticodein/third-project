@@ -1,16 +1,16 @@
 {% extends 'base.html'%}{% block content %}
-<h3>Edit Category</h3>
+<h3>Add Category</h3>
 <div class="row">
-    <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s4 offset-s4">
+    <form action="{{ url_for('insert_category') }}" method="POST" class="col s4 offset-s4">
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_dining</i>
-                <input id="category_name" name="category_name" type="text" class="validate" value="{{category.category_name}}">
-                <label for="category_name">Edit Category</label>
+                <input id="category_name" name="category_name" type="text" class="validate required">
+                <label for="category_name">Add New Category</label>
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light green" type="submit" name="addcategory">Save Changes
+            <button class="btn waves-effect waves-light green" type="submit" name="category_name">Add Category
                 <i class="material-icons right">local_dining</i>
              </button>
             <a href="{{ url_for('get_categories') }}" class="waves-effect waves-light btn blue">
