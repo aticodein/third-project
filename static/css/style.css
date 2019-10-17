@@ -24,3 +24,15 @@ body {
 .brand-logo {
     padding-left: 10px;
 }
+
+.container {
+    max-width: 510px;
+}
+
+.green {
+    margin-right: 10px;
+}
+
+.red {
+    margin-left: 0px;
+}

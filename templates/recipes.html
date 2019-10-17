@@ -1,15 +1,12 @@
 {% extends 'base.html' %}{% block content %}
 <h3 class="center-align">{{ page_title }}</h3>
-<div class="container">
-    <ul class="collapsible col s6" data-collapsible="accordion">
+<div class="container"style="width: 460px;">
+    <ul class="collapsible" data-collapsible="accordion">
         {% for recipes in myHunCuisineDB %}
         <li>
             <div class="collapsible-header">
                 <div class="recipe_header col s6">
-                 <strong > {{recipes.recipe_title|upper}} </strong> <br> <img class="postcard-image" src={{recipes.img_url}} alt="image"> 
-                </div>
-                <div class="col s3">
-                <i class="material-icons">local_dining</i>
+                 <strong > {{recipes.recipe_title|upper}} </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image"> 
                 </div>
             </div>
             <div class="collapsible-body">

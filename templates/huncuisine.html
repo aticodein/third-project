@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% block content %}
 <h5 class="center-align">For change your recipe click on EDIT</h5>
-<div class="container">
+<div class="container"style="width: 460px;">
     <ul class="collapsible" data-collapsible="accordion">
         {% for cousine in myHunCuisineDB %}
         <li>
@@ -9,7 +9,6 @@
                  <strong> {{cousine.recipe_title|upper}} </strong> <br> <img class="postcard-image" src={{cousine.img_url}} alt="image"> 
                 </div>
                 <div class="row col s4">
-                <i class="material-icons">local_dining</i>
                 </div>
                 <div class="row s12">
                     <div class="col s3 offset-s6">
