@@ -4,19 +4,21 @@
     <ul class="collapsible" data-collapsible="accordion">
         {% for recipes in myHunCuisineDB %}
         <li>
-            <div class="collapsible-header">
+            <div id="recipe-header" class="collapsible-header">
                 <div class="recipe_header col s6">
                  <strong > {{recipes.recipe_title|upper}} </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image"> 
                 </div>
             </div>
-            <div class="collapsible-body">
+            <div id="recipe-body" class="collapsible-body">
                 <span>Ingredients: <br>
                     {{recipes.recipe_ingredients|upper}}
                 </span>
                 <br>
+                <div id="recipe-preparation" class="preparation">
                 <span>Preparation: <br>
                     {{recipes.recipe_preparation|lower}} {{recipes.is_favourite|lower}}
                 </span>
+                </div>
             </div>
         </li>
         {% endfor %}

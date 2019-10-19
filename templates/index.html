@@ -17,34 +17,26 @@
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/index">Home</a></li>
-                <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
-                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
-                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
-                <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
+                <li><a href="/recipes">Recipes</a></li>
+                <li><a href="/get_categories_only">Categories</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="/index">Home</a></li>
                 <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
-                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
-                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
-                <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
+                <li><a href="{{ url_for('get_categories_only')}}">Categories</a></li>
             </ul>
         </div>
     </nav>
 </header>
 <body>
     <h2 class="center-align">Hungarian Recipes</h2>
-
-    
-    
-    {% block content %}{% endblock %}
     
     <h3 class="center-align">{{ page_title }}</h3>
-    <div class="main-image center-align">
+     <!-- <div class="main-image center-align">
         <img class="" src="https://www.okoskonyha.hu/images/recipes/u/ujhazi-tyukhusleves/normal.jpg" alt="image">
-    </div>
+    </div> -->
     
-    <ul class="pagination">
+    <!-- <ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     <li class="active"><a href="#!">1</a></li>
     <li class="waves-effect"><a href="#!">2</a></li>
@@ -52,19 +44,20 @@
     <li class="waves-effect"><a href="#!">4</a></li>
     <li class="waves-effect"><a href="#!">5</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
+  </ul> -->
+  
   
  
     
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(document).ready(function() {
             $('select').material_select();
             $(".collapsible").collapsible();
             $(".button-collapse").sideNav();
         });
-    </script>
+    </script> -->
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>

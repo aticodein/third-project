@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script language="JavaScript" type="text/javascript">
           function checkDelete(){
-            return confirm('Are you sure you want to delete this recipe?');
+            return confirm('Are you sure you want to delete this?');
          }
     </script>
 </head>
@@ -24,16 +25,18 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/index">Home</a></li>
                 <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
-                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
-                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
                 <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
+                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
+                <li><a href="{{ url_for('get_categories_only')}}">Categories</a></li>
+                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="/index">Home</a></li>
                 <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
-                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
-                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
                 <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
+                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
+                <li><a href="{{ url_for('get_categories_only')}}">Categories</a></li>
+                <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
             </ul>
         </div>
     </nav>
@@ -54,15 +57,16 @@
     {% block content %}{% endblock %}
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(document).ready(function() {
             $('select').material_select();
             $(".collapsible").collapsible();
             $(".button-collapse").sideNav();
         });
-    </script>
+    </script> -->
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>

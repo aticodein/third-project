@@ -1,4 +1,5 @@
 import os
+import bson
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
@@ -19,7 +20,15 @@ def get_myHunCuisineDB():
      
 @app.route('/get_categories')
 def get_categories():
-    return render_template('categories.html', categories=mongo.db.categories.find())     
+    return render_template('managecat.html', categories=mongo.db.categories.find())
+    
+@app.route('/get_categories_only')
+def get_categories_only():
+    return render_template('categories.html', categories=mongo.db.categories.find())    
+    
+@app.route('/get_images')
+def get_images():
+    return render_template('index.html', images=mongo.db.img_url.find())    
                           
 @app.route('/base')
 def get_base():
@@ -27,7 +36,9 @@ def get_base():
     
 @app.route('/index')
 def get_index():
-    return render_template("index.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Main Page")
+    return render_template("index.html", myHunCuisineDB=mongo.db.myHunCu_isineDB.find(), page_title="Main Page")
+    
+print(get_index)    
     
 @app.route('/recipes')
 def get_recipes():
@@ -97,6 +108,9 @@ def edit_category(category_id):
     return render_template('editcategory.html',
                            category=mongo.db.categories.find_one(
                            {'_id': ObjectId(category_id)}))
+ 
+ 
+ 
    
     
 if __name__ == '__main__':
