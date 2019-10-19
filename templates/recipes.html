@@ -6,7 +6,7 @@
         <li>
             <div id="recipe-header" class="collapsible-header">
                 <div class="recipe_header col s6">
-                 <strong > {{recipes.recipe_title|upper}} </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image"> 
+                 <strong > {{recipes.recipe_title|upper}} <p id="favourite"> {{recipes.is_favourite|upper}} </p> </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image"> 
                 </div>
             </div>
             <div id="recipe-body" class="collapsible-body">
@@ -16,7 +16,7 @@
                 <br>
                 <div id="recipe-preparation" class="preparation">
                 <span>Preparation: <br>
-                    {{recipes.recipe_preparation|lower}} {{recipes.is_favourite|lower}}
+                    {{recipes.recipe_preparation|lower}} 
                 </span>
                 </div>
             </div>
