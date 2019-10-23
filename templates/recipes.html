@@ -1,23 +1,31 @@
 {% extends 'base.html' %}{% block content %}
+
 <h3 class="center-align">{{ page_title }}</h3>
-<div class="container"style="width: 460px;">
-    <ul class="collapsible" data-collapsible="accordion">
+
+
+
+
+<div class="container center-align">
+    <ul class="ul-collapsible collapsible center-align" data-collapsible="accordion">
         {% for recipes in myHunCuisineDB %}
-        <li>
+        <li class="li-collapsible">
             <div id="recipe-header" class="collapsible-header">
                 <div class="recipe_header col s6">
-                 <strong > {{recipes.recipe_title|upper}} <p id="favourite"> {{recipes.is_favourite|upper}} </p> </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image"> 
+                    <strong> {{recipes.recipe_title|upper}} <p class="favourite"> {% if recipes.is_favourite == "on" %} My Favourite Recipe
+                                                                                        {% endif %}
+                         </p> </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image">
                 </div>
             </div>
+            
             <div id="recipe-body" class="collapsible-body">
                 <span>Ingredients: <br>
-                    {{recipes.recipe_ingredients|upper}}
-                </span>
+                                        {{recipes.recipe_ingredients|upper}}
+                                    </span>
                 <br>
                 <div id="recipe-preparation" class="preparation">
-                <span>Preparation: <br>
-                    {{recipes.recipe_preparation|lower}} 
-                </span>
+                    <span>Preparation: <br>
+                                        {{recipes.recipe_preparation|lower}} 
+                                    </span>
                 </div>
             </div>
         </li>
@@ -26,3 +34,4 @@
 </div>
 
 {% endblock %}
+

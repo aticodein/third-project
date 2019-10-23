@@ -28,23 +28,171 @@
         </div>
     </nav>
 </header>
+
 <body>
     <h2 class="center-align">Hungarian Recipes</h2>
     
     <h3 class="center-align">{{ page_title }}</h3>
-     <!-- <div class="main-image center-align">
-        <img class="" src="https://www.okoskonyha.hu/images/recipes/u/ujhazi-tyukhusleves/normal.jpg" alt="image">
-    </div> -->
-    
-    <!-- <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+     
+
+<!-- <ul class="pagination">
+    <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li class="waves-effect"><a href="#2">2</a></li>
+    <li class="waves-effect"><a href="#3">3</a></li>
+    <li class="waves-effect"><a href="#4">4</a></li>
+    <li class="waves-effect"><a href="#5">5</a></li>
+    <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
   </ul> -->
+  
+
+
+
+<!--Recipes with Pagination-->
+ 
+<section>
+  <!--Summary-->
+    {% if recipes.count() == 0 %}
+    <div class="center">
+        <h6>No recipes to show.</h6>
+    </div>
+    
+    {% else %}
+    <div class="center">
+        <h6> Tasting {{first_result_num}} - {{last_result_num}} of {{recipes.count()}} recipes</h6>
+    </div>
+    
+    <!--Pagination-->
+<ul class="pagination center">
+        <!--Left Arrow-->
+        {% if current_page | int > 1 %}
+        <li><a href="{{ url_for('get_index', current_page=current_page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+        {% else %}
+        <li class="disabled"><i class="material-icons">chevron_left</i></li>
+        {% endif %}
+
+        <!--Page Numbers-->
+            {% for page_number in pages %}
+            {% if page_number == current_page %}
+            <li class="active"><a>{{ page_number }}</a></li>
+            {% else %}
+            <li><a href="{{ url_for('get_index', current_page=page_number) }}">{{ page_number }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <!--Right Arrow-->
+        {% if current_page | int < pages | count | int %}
+        <li><a href="{{ url_for('get_index', current_page=current_page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+        {% else %}
+        <li class="disabled"><i class="material-icons">chevron_right</i></i></li>
+        {% endif %}
+    </ul>
+    <!--Recipes-->
+<div class="container center-align">
+<section class="row">
+        {% for recipes in recipes %}
+        <div class="col s10">
+            <strong> Of {{recipes.category_name|upper}} Category : </strong> <br>
+            <strong> {{recipes.recipe_title|upper}} 
+            <p class="favourite"> {% if recipes.is_favourite == "on" %} My Favourite Recipe {% endif %} </p>
+            </strong>
+            <img class="center-align postcard-image" src={{recipes.img_url}} alt="image">
+            <div  class="ingredients row col s12">
+                <span>Ingredients: <br>
+                    {{recipes.recipe_ingredients|upper}}
+                </span>
+            </div>    
+                <br>
+            <div  class="preparation row col s12">
+                <span>Preparation: <br>
+                    {{recipes.recipe_preparation|lower}} 
+                </span>
+               
+            </div>
+        </div>
+        <div  class="hr row col s12">
+        <hr>
+        </div>
+        {% endfor %}
+    </section>
+    <!-- <div class="row">
+    <ul class="ul-collapsible collapsible center-align" data-collapsible="accordion">
+        {% for recipes in recipes %}
+        <li class="li-collapsible">
+            <div id="recipe-header" class="collapsible-header">
+                <div class="recipe_header col s6">
+                    <strong> {{recipes.recipe_title|upper}} <p class="favourite"> {% if recipes.is_favourite == "on" %} My Favourite Recipe
+                                                                                        {% endif %}
+                         </p> </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image">
+                </div>
+            </div>
+            
+            <div id="recipe-body" class="collapsible-body">
+                <span>Ingredients: <br>
+                                        {{recipes.recipe_ingredients|upper}}
+                                    </span>
+                <br>
+                <div id="recipe-preparation" class="preparation">
+                    <span>Preparation: <br>
+                                        {{recipes.recipe_preparation|lower}} 
+                                    </span>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div> -->
+</div>
+    
+    
+    
+    
+    {% endif %}  
+</section>
+
+
+
+
+
+
+
+
+<!-- <section class="row s12">
+    {% for recipes in myHunCuisineDB %}
+    <hr class="hr-results">
+    <div class="col s9 offset-s4">
+        
+        <strong> {{recipes.recipe_title|upper}} <p class="favourite"> {% if recipes.is_favourite == "on" %} My Favourite Recipe
+                                                                                        {% endif %}
+                         </p> </strong> <br> <div class="card-image"><img class="center-align responsive-img" src={{recipes.img_url}} alt="image"></div>
+    </div>
+    
+    <div class="recipe-body-index col s9 offset-s4">
+    <div id="recipe-ingredients" class="ingredients col s12">
+        <span class="col s5">Ingredients: <br>
+            {{recipes.recipe_ingredients|upper}}
+        </span>
+    </div>    
+        <br>
+    <div id="recipe-preparation" class="preparation col s12">
+        <span class="col s5">Preparation: <br>
+            {{recipes.recipe_preparation|lower}} 
+        </span>
+        <br>
+        <line></line>
+    </div>
+    </div>
+    {% endfor %}
+</section> -->
+
+
+
+
+
+
+
+    
+    
   
   
  
@@ -60,6 +208,7 @@
     </script> -->
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>

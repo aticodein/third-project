@@ -4,10 +4,10 @@ body {
 
 .btn_small {
     height: 24px;
-    width: 120px;
+    width: 110px;
     margin: 5px 5px;
     padding: 0 0.5em;
-    line-height: 24px;
+    line-height: 20px;
     
 }
 
@@ -16,17 +16,14 @@ body {
 }
 
 .postcard-image {
-    width: 430px;
-    height: 236px;
+    width: 100%;
+    height: auto;
     padding: 10px;
 }
 
 .brand-logo {
-    padding-left: 10px;
-}
-
-.container {
-    max-width: 510px;
+    margin-top: 1px;
+    font-size: 1.5em;
 }
 
 .green {
@@ -35,4 +32,109 @@ body {
 
 .red {
     margin-left: 0px;
+}
+
+.card-image {
+    max-width: 400px;
+    height: auto;
+}
+.hr-results {
+    width: 310px;
+    height: 1px;
+    border-color: yellow;
+    border-width: 1px;
+    
+}
+
+@media only screen and (min-width: 301px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 2px solid red;
+        width: auto;    
+
+    }
+    .postcard-image {
+        width: 150px;
+        height: auto;
+        margin: auto;
+    }
+    .collapsible-header {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .collapsible-body {
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+    }
+    .li-collapsible {
+        max-width: 180px;
+        margin: auto;
+    }
+    .ul-collapsible {
+        max-width: 180px;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 2px solid green;
+        width: 500px;
+    }
+    .postcard-image {
+        width: 450px;
+        height: auto;
+       margin: auto;
+    }
+    .collapsible-header {
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+    }
+    .collapsible-body {
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+    }
+    .li-collapsible {
+        max-width: 520px;
+        margin: auto;
+    }
+    .ul-collapsible {
+        max-width: 510px;
+       margin: auto;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 2px solid blue;
+        height: auto;
+    }
+    .postcard-image {
+        width:  480px;
+        height: auto;
+        margin: auto;
+    }
+    .collapsible-header {
+        width:  530px;
+        height: auto;
+        margin: auto;
+    }
+    
+    .li-collapsible {
+        max-width: 100%;
+        margin: auto;
+    }
+    .ul-collapsible {
+        width: 100%;
+        margin: auto;
+    }
 }

@@ -1,39 +1,40 @@
 {% extends 'base.html' %}{% block content %}
+
 <h5 class="center-align">For change your recipe click on EDIT</h5>
-<div class="container"style="width: 460px;">
-    <ul class="collapsible" data-collapsible="accordion">
+
+<div class="container">
+    <ul class="ul-collapsible collapsible" data-collapsible="accordion">
         {% for cousine in myHunCuisineDB %}
-        <li>
-            <div class="collapsible-header">
-                <div class=" row recipe_header col s4 center-align">
-                 <strong> {{cousine.recipe_title|upper}} </strong> <br> <img class="postcard-image" src={{cousine.img_url}} alt="image">
-                 <div class="row s12">
-                    <div class="col s3 offset-s1">
-                      <a href="{{ url_for('delete_recipe', recipe_id=cousine._id)}}" onclick="return checkDelete()" class="waves-effect waves-light btn btn_small red">delete</a>
+        <li class="li-collapsible">
+            <div id="recipe-header" class="collapsible-header">
+                <div class="recipe_header col s6">
+                    <strong> {{cousine.recipe_title|upper}} </strong> <br> <img class="postcard-image" src={{cousine.img_url}} alt="image">
+                    <div class="row s12">
+                        <div class="col s3 offset-s1">
+                            <a href="{{ url_for('delete_recipe', recipe_id=cousine._id)}}" onclick="return checkDelete()" class="waves-effect waves-light btn btn_small red">delete</a>
+                        </div>
+                        <div class="col s3 offset-s4">
+                            <a href="{{ url_for('edit_recipe', recipe_id=cousine._id)}}" class="waves-effect waves-light btn btn_small blue">edit</a>
+                        </div>
                     </div>
-                    <div class="col s3 offset-s4">
-                       <a href="{{ url_for('edit_recipe', recipe_id=cousine._id)}}" class="waves-effect waves-light btn btn_small blue">edit</a> 
-                    </div>
-            </div>
                 </div>
-                <div class="row col s4">
-                </div>
-            </div>
+            </div>    
+        
+            <div id="recipe-body" class="collapsible-body">
             
-            
-            <div class="collapsible-body">
                 <span>
-                    {{cousine.recipe_ingredients|upper}}
-                </span>
+                                        {{cousine.recipe_ingredients|upper}}
+                                    </span>
                 <br>
                 <span>
-                    {{cousine.recipe_preparation}}
-                </span>
+                                        {{cousine.recipe_preparation}}
+                                    </span>
             </div>
         </li>
         {% endfor %}
     </ul>
 </div>
+
 <h3 class="center-align">{{ page_title }}</h3>
 
 {% endblock %}

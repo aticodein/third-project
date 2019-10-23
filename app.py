@@ -1,3 +1,4 @@
+import math
 import os
 import bson
 from flask import Flask, render_template, redirect, request, url_for
@@ -13,10 +14,47 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 mongo = PyMongo(app)
 
 @app.route('/')
+@app.route("/index", methods=['POST', 'GET'])
+    
+def get_index():
+    categories = mongo.db.categories.find()
 
+    # Pagination
+    current_page = int(request.args.get('current_page', 1))
+    recipes_per_page=4
+    total_recipes = mongo.db.myHunCuisineDB.count()
+    num_pages = range(1, int(math.ceil(total_recipes / recipes_per_page)) + 1)
+    recipes = mongo.db.myHunCuisineDB.find().skip(
+        (current_page - 1) * recipes_per_page).limit(recipes_per_page)
+
+    # Summary - (example) 'showing 1 - 4 of all results'
+    x = current_page * recipes_per_page
+    first_result_num = x - recipes_per_page + 1
+    last_result_num = x if x < total_recipes else total_recipes
+
+    return render_template('index.html',
+                           myHunCuisineDB=mongo.db.myHunCuisineDB.find(),
+                           recipes=recipes,
+                           categories=categories,
+                           # Pagination & Sumarry
+                           current_page=current_page,
+                           pages=num_pages,
+                           first_result_num=first_result_num,
+                           last_result_num=last_result_num,
+                           page_title="Main Page")
+                           
+#@app.route('/')
+#@app.route('/index')
+#def get_index():
+#    return render_template("index.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Main Page")
+
+@app.route('/recipes')
+def get_recipes():
+    return render_template("recipes.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Recipes") 
+    
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
-     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Edit Recipes")
+    return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Edit Recipes")
      
 @app.route('/get_categories')
 def get_categories():
@@ -34,15 +72,7 @@ def get_images():
 def get_base():
     return render_template("base.html")
     
-@app.route('/index')
-def get_index():
-    return render_template("index.html", myHunCuisineDB=mongo.db.myHunCu_isineDB.find(), page_title="Main Page")
-    
 print(get_index)    
-    
-@app.route('/recipes')
-def get_recipes():
-    return render_template("recipes.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Recipes")    
     
 @app.route('/add_recipe')
 def add_recipe():

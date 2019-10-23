@@ -1,3 +1,6 @@
+alert("only main js loaded trogh base"); 
+ 
+ 
  // Materialize Framework JQuery Iniitialisations  
  
 $(document).ready(function() {
@@ -5,18 +8,10 @@ $(document).ready(function() {
      $(".collapsible").collapsible();
      $(".button-collapse").sideNav();
      $(".tooltipped").tooltip();
-});    
+});
 
-
- function changeFavourite() {
-   const element = document.getElementById("favourite");
-   if (element.innerText == "ON") {
-       element.innerText = "Favourite";
-   }
-   else {
-       element.style.display = "none";
-   }
-} 
-
-changeFavourite();
+function checkDelete(){
+   return confirm("Are you sure you want to delete this?");
+}   
+            
  

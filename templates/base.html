@@ -6,15 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <script language="JavaScript" type="text/javascript">
-          function checkDelete(){
-            return confirm('Are you sure you want to delete this?');
-         }
-    </script>
 </head>
 
 <header>
@@ -43,20 +37,11 @@
 </header>
 <body>
     <h2 class="center-align">Hungarian Recipes</h2>
-    <!-- <div class="navbar-fixed, center-align">
-        <nav class="collapse, sideNav">
-            <ul>
-                <li><a href="/index">Home</a></li>
-                <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
-                <li><a href="{{ url_for('get_categories')}}">Categories</a></li>
-                <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
-                <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
-            </ul>
-        </nav>
-    </div> -->
+  
     {% block content %}{% endblock %}
+    
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- <script type="text/javascript">
         $(document).ready(function() {
             $('select').material_select();
