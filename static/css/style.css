@@ -2,6 +2,27 @@ body {
     background-color: #ebda98;
 }
 
+nav {
+    background: black;
+    top: 0;
+    width: 100%;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-fixed nav {
+    top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: fixed;
+
+}
+
+.nav-wrapper {
+    padding: 0;
+}
+
 .btn_small {
     height: 24px;
     width: 110px;

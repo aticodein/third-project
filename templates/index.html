@@ -10,7 +10,12 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
-<header>
+
+<body>
+
+ 
+<header id="sticky-nav">
+    <h1 class="center-align"> TOP HEADER ELEMENT</h1>
     <nav>
         <div class="nav-wrapper">
             <a href="" class="brand-logo" class="brand-logo" style="padding-left: 10px;">Hungarian Cuisine</a>
@@ -29,7 +34,6 @@
     </nav>
 </header>
 
-<body>
     <h2 class="center-align">Hungarian Recipes</h2>
     
     <h3 class="center-align">{{ page_title }}</h3>
@@ -187,16 +191,18 @@
 
 
 
-
-
-
-
-    
-    
-  
-  
  
-    
+  <!-- <script>
+    const nav = document.querySelector('#main');
+    const topOfNav = nav.offsetTop;
+
+    function fixNav(argument) {
+        console.log(topOfNav);
+    }
+
+    window.addEventListener('scroll', fixNav);
+</script> -->
+
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- <script type="text/javascript">

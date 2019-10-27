@@ -11,7 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 
-<header>
+
+<body>
+    
+   
+
+<header id="sticky-nav">
+    <h1> TOP HEADER ELEMENT</h1>
     <nav>
         <div class="nav-wrapper">
             <a href="/index" class="brand-logo" class="brand-logo" style="padding-left: 10px;">Hungarian Cuisine</a>
@@ -35,10 +41,12 @@
         </div>
     </nav>
 </header>
-<body>
+
     <h2 class="center-align">Hungarian Recipes</h2>
   
     {% block content %}{% endblock %}
+    
+  
     
     <!--Import jQuery before materialize.js-->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
