@@ -3,18 +3,35 @@
 <h3 class="center-align">{{ page_title }}</h3>
 <div class="row">
     <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s4 offset-s4">
-     <div class="row">
+      
+      <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">local_dining</i>
-          <select id="categories" name="category_name">
-              <option value="" disabled selected>Choose your course</option>
+          <select id="categories" name="category_name" class="validate" required>
+              <option value="" disabled selected>Categories</option>
               {% for cat in get_categories %}
-              <option value="{{cat.category_name}}">{{cat.category_name|upper}}</option>
+                  <option value="{{cat.category_name}}">{{cat.category_name|upper}}</option>
               {% endfor %}
             </select>
           <label>Select Course</label>
         </div>
       </div>
+      
+      
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">pan_tool</i>
+          <select id="allergens" name="allergens_types" class="validate" required>
+              <option value="" disabled selected>Allergens</option>
+                {% for allergy in allergens %}
+                    <option value="{{allergy.allergens_types}}">{{allergy.allergens_types|upper}}</option>
+                {% endfor %}
+            </select>
+          <label>Select allergens</label>
+        </div>
+      </div>
+    
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">edit</i>
@@ -63,4 +80,5 @@
   </div>
 
 {% endblock %}
+
 

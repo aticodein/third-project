@@ -1,7 +1,6 @@
 import math
 import os
-import bson
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
@@ -42,11 +41,6 @@ def get_index():
                            first_result_num=first_result_num,
                            last_result_num=last_result_num,
                            page_title="Main Page")
-                           
-#@app.route('/')
-#@app.route('/index')
-#def get_index():
-#    return render_template("index.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Main Page")
 
 @app.route('/recipes')
 def get_recipes():
@@ -62,7 +56,15 @@ def get_categories():
     
 @app.route('/get_categories_only')
 def get_categories_only():
-    return render_template('categories.html', categories=mongo.db.categories.find())    
+    return render_template('categories.html', categories=mongo.db.categories.find())
+    
+@app.route('/get_allergens_only')
+def get_allergens_only():
+    return render_template('allergens.html', allergens=mongo.db.allergens.find())    
+    
+@app.route('/get_allergens')
+def get_allergens():
+    return render_template('manageallergens.html', allergens=mongo.db.allergens.find())
     
 @app.route('/get_images')
 def get_images():
@@ -76,7 +78,7 @@ print(get_index)
     
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("addrecipe.html", get_categories=mongo.db.categories.find(), page_title="Add Your New Recipe")
+    return render_template("addrecipe.html", get_categories=mongo.db.categories.find(), allergens=mongo.db.allergens.find(), page_title="Add Your New Recipe")
     
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
@@ -92,9 +94,20 @@ def insert_category():
    # categories.insert_one(category_doc)
     return redirect(url_for('get_categories'))
     
+@app.route('/insert_allergens', methods=['POST'])    
+def insert_allergens():
+    allergens = mongo.db.allergens
+    allergens.insert_one(request.form.to_dict())
+   
+    return redirect(url_for('get_allergens'))     
+    
 @app.route('/new_gategory')
 def new_gategory():
     return render_template('addcategory.html')
+    
+@app.route('/new_allergens')
+def new_allergens():
+    return render_template('addallergens.html')    
     
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -106,15 +119,24 @@ def update_category(category_id):
     mongo.db.categories.update(
         {'_id': ObjectId(category_id)},
         {'category_name': request.form.get('category_name')})
-    return redirect(url_for('get_categories')) 
+    return redirect(url_for('get_categories'))
+    
+@app.route('/update_allergens/<allergens_id>', methods=['POST'])
+def update_allergens(allergens_id):
+    mongo.db.allergens.update(
+        {'_id': ObjectId(allergens_id)},
+        {'allergens_types': request.form.get('allergens_types')})
+    return redirect(url_for('get_allergens'))    
     
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
     recipe = mongo.db.myHunCuisineDB
     category = mongo.db.categories
+    allergens = mongo.db.allergens
     recipe.update( {'_id': ObjectId(recipe_id)},
     {
         'category_name':request.form.get('category_name'),
+        'allergens_types':request.form.get('allergens_types'),
         'recipe_title':request.form.get('recipe_title'),
         'img_url': request.form.get('img_url'),
         'recipe_ingredients': request.form.get('recipe_ingredients'),
@@ -138,6 +160,19 @@ def edit_category(category_id):
     return render_template('editcategory.html',
                            category=mongo.db.categories.find_one(
                            {'_id': ObjectId(category_id)}))
+    
+    
+@app.route('/delete_allergens/<allergens_id>')
+def delete_allergens(allergens_id):
+    mongo.db.allergens.remove({'_id': ObjectId(allergens_id)})
+    return redirect(url_for('get_allergens'))  
+    
+    
+@app.route('/edit_allergens/<allergens_id>')
+def edit_allergens(allergens_id):
+    return render_template('editallergens.html',
+                           allergens=mongo.db.allergens.find_one(
+                           {'_id': ObjectId(allergens_id)}))                           
  
  
  
@@ -148,5 +183,3 @@ if __name__ == '__main__':
    app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         debug=True)
-          
-            

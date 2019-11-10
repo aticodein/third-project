@@ -3,7 +3,6 @@ body {
 }
 
 nav {
-    background: black;
     top: 0;
     width: 100%;
     transition: all 0.5s;
@@ -23,6 +22,16 @@ nav {
     padding: 0;
 }
 
+#sidenav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
 .btn_small {
     height: 24px;
     width: 110px;
@@ -34,17 +43,6 @@ nav {
 
 .recipe_header {
     margin-top: 10px;
-}
-
-.postcard-image {
-    width: 100%;
-    height: auto;
-    padding: 10px;
-}
-
-.brand-logo {
-    margin-top: 1px;
-    font-size: 1.5em;
 }
 
 .green {
@@ -67,7 +65,10 @@ nav {
     
 }
 
-@media only screen and (min-width: 301px) {
+@media only screen and (min-width: 266px) {
+    .brand-logo {
+        font-size: 1em;
+    }
     .container {
         padding-left: 10px;
         padding-right: 10px;
@@ -76,12 +77,12 @@ nav {
 
     }
     .postcard-image {
-        width: 150px;
+        width: 250px;
         height: auto;
         margin: auto;
     }
     .collapsible-header {
-        max-width: 100%;
+        max-width: 260px;
         height: auto;
     }
     
@@ -91,8 +92,9 @@ nav {
         margin: auto;
     }
     .li-collapsible {
-        max-width: 180px;
+        max-width: 280px;
         margin: auto;
+        z-index: 10;
     }
     .ul-collapsible {
         max-width: 180px;
@@ -101,6 +103,9 @@ nav {
 }
 
 @media only screen and (min-width: 760px) {
+    .brand-logo {
+        size: 1.2em;
+    }
     .container {
         padding-left: 10px;
         padding-right: 10px;
@@ -108,7 +113,7 @@ nav {
         width: 500px;
     }
     .postcard-image {
-        width: 450px;
+        width: 430px;
         height: auto;
        margin: auto;
     }
@@ -125,6 +130,7 @@ nav {
     .li-collapsible {
         max-width: 520px;
         margin: auto;
+        z-index: 10;
     }
     .ul-collapsible {
         max-width: 510px;
@@ -140,7 +146,7 @@ nav {
         height: auto;
     }
     .postcard-image {
-        width:  480px;
+        width:  450px;
         height: auto;
         margin: auto;
     }
@@ -153,6 +159,7 @@ nav {
     .li-collapsible {
         max-width: 100%;
         margin: auto;
+        z-index: 10;
     }
     .ul-collapsible {
         width: 100%;

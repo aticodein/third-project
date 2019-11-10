@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,16 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 
-
 <body>
     
-   
-
-<header id="sticky-nav">
-    <h1> TOP HEADER ELEMENT</h1>
+<header>
+  <div class="navbar-fixed">  
     <nav>
         <div class="nav-wrapper">
-            <a href="/index" class="brand-logo" class="brand-logo" style="padding-left: 10px;">Hungarian Cuisine</a>
+            <div class="truncate"><a href="/index" class="brand-logo" class="brand-logo" style="padding-left: 10px;">Hungarian Cuisine</a></div>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/index">Home</a></li>
@@ -28,35 +25,36 @@
                 <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
                 <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
                 <li><a href="{{ url_for('get_categories_only')}}">Categories</a></li>
+                <li><a href="{{ url_for('get_allergens_only')}}">Allergens only</a></li>
+                <li><a href="{{ url_for('get_allergens')}}">Manage Allergens</a></li>
                 <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
+                
             </ul>
-            <ul class="side-nav" id="mobile-demo">
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+<!--Side Nav-->
+
+<ul class="side-nav" id="mobile-demo">
                 <li><a href="/index">Home</a></li>
                 <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
                 <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
                 <li><a href="{{ url_for('add_recipe')}}">New Recipe</a></li>
                 <li><a href="{{ url_for('get_categories_only')}}">Categories</a></li>
                 <li><a href="{{ url_for('get_categories')}}">Manage Categories</a></li>
+                
             </ul>
-        </div>
-    </nav>
-</header>
 
     <h2 class="center-align">Hungarian Recipes</h2>
   
-    {% block content %}{% endblock %}
-    
+    {% block content %} {% endblock %} 
   
     
-    <!--Import jQuery before materialize.js-->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <!-- <script type="text/javascript">
-        $(document).ready(function() {
-            $('select').material_select();
-            $(".collapsible").collapsible();
-            $(".button-collapse").sideNav();
-        });
-    </script> -->
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% block content %}
+<h3 class="center-align">Allergens</h3>
+<div class="container"style="width: 500px;">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for allergies in allergens %}
+        <li>
+            <div class="collapsible-header">
+                
+                <i class="material-icons">local_dining</i>
+                <div class="recipe_header col s6">
+                <strong > {{allergies.allergens_types|upper}} </strong> 
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="row">
+    <div class="col s3 offset-s5">
+        <a href="{{ url_for('get_allergens')}}" class="waves-effect waves-light btn red">
+        <i class="material-icons right">restaurant</i>Admin Only</a>
+    </div>
+</div>
+
+{% endblock %}

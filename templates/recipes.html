@@ -2,36 +2,22 @@
 
 <h3 class="center-align">{{ page_title }}</h3>
 
+<div class="carousel">
+    {% for images in myHunCuisineDB %}
+     <a class="carousel-item" href="#"><p> {{images.recipe_title|upper}} </p><img src={{images.img_url}}></a>
+    {% endfor %}
+</div> 
 
 
 
-<div class="container center-align">
-    <ul class="ul-collapsible collapsible center-align" data-collapsible="accordion">
-        {% for recipes in myHunCuisineDB %}
-        <li class="li-collapsible">
-            <div id="recipe-header" class="collapsible-header">
-                <div class="recipe_header col s6">
-                    <strong> {{recipes.recipe_title|upper}} <p class="favourite"> {% if recipes.is_favourite == "on" %} My Favourite Recipe
-                                                                                        {% endif %}
-                         </p> </strong> <br> <img class="center-align postcard-image" src={{recipes.img_url}} alt="image">
-                </div>
-            </div>
-            
-            <div id="recipe-body" class="collapsible-body">
-                <span>Ingredients: <br>
-                                        {{recipes.recipe_ingredients|upper}}
-                                    </span>
-                <br>
-                <div id="recipe-preparation" class="preparation">
-                    <span>Preparation: <br>
-                                        {{recipes.recipe_preparation|lower}} 
-                                    </span>
-                </div>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-
+<div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+  </div>
 {% endblock %}
 

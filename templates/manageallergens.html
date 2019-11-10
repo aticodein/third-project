@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% block content %}
+<h3 class="center-align">Allergies</h3>
+<div class="container"style="width: 500px;">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for allergens in allergens %}
+        <li>
+            <div class="collapsible-header">
+                
+                <i class="material-icons">pan_tool</i>
+                <a href="{{url_for('delete_allergens',allergens_id=allergens._id)}}" onclick="return checkDelete()" class="waves-effect waves-light btn btn_small red">delete</a>
+                <a href="{{url_for('edit_allergens',allergens_id=allergens._id)}}" class="waves-effect waves-light btn btn_small green">edit</a>
+                <div class="recipe_header col s6">
+                <strong > {{allergens.allergens_types|upper}} </strong> 
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="row">
+    <div class="col s3 offset-s5">
+        <a href="{{url_for('new_allergens')}}" class="waves-effect waves-light btn">
+        <i class="material-icons right">pan_tool</i>Add New Allergens</a>
+    </div>
+</div>
+
+{% endblock %}

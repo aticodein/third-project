@@ -1,0 +1,22 @@
+{% extends 'base.html'%}{% block content %}
+<h3 class="center-align">Add Allergens</h3>
+<div class="row">
+    <form action="{{ url_for('insert_allergens') }}" method="POST" class="col s4 offset-s4">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">pan_tool</i>
+                <input id="get_allergens" name="allergens_types" type="text" class="validate required">
+                <label for="allergens_types">Add New Alergens</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light green" type="submit" name="allergens_types">Add Allergens
+                <i class="material-icons right">restaurant</i>
+             </button>
+            <a href="{{ url_for('get_allergens') }}" class="waves-effect waves-light btn blue">
+                <i class="material-icons right">cancel</i>Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

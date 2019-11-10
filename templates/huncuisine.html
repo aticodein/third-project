@@ -2,6 +2,8 @@
 
 <h5 class="center-align">For change your recipe click on EDIT</h5>
 
+<h3 class="center-align">{{ page_title }}</h3>
+
 <div class="container">
     <ul class="ul-collapsible collapsible" data-collapsible="accordion">
         {% for cousine in myHunCuisineDB %}
@@ -34,7 +36,5 @@
         {% endfor %}
     </ul>
 </div>
-
-<h3 class="center-align">{{ page_title }}</h3>
 
 {% endblock %}
