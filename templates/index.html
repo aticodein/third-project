@@ -8,11 +8,11 @@
                 <div class="input-field col s12 m4">
                     <select id="category_filter" name="category_filter">
                         <option value="" selected>No Filter</option>
-                        {% for cat in get_categories %}
-                           {% if cat.category_name == recipe.category_name %}
-                             <option value="{{cat.category_name}}" selected >{{cat.category_name|upper}}</option>
+                        {% for categ in get_categories %}
+                           {% if categ.category_name == recipe.category_name %}
+                             <option value="{{categ.category_name}}" selected >{{categ.category_name|upper}}</option>
                            {% else %} 
-                             <option value="{{cat.category_name}}">{{cat.category_name|upper}}</option>
+                             <option value="{{categ.category_name}}">{{categ.category_name|upper}}</option>
                            {% endif %} 
                        {% endfor %}
                         </select>

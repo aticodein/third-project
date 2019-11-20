@@ -15,11 +15,10 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route("/index", methods=['POST', 'GET'])
 
-
-    
 def get_index():
     
-    category_name = mongo.db.categories.find()
+    get_categories = mongo.db.categories.find()
+    recipe = mongo.db.myHunCuisineDB.find()
 
     # Pagination
     current_page = int(request.args.get('current_page', 1))
@@ -33,11 +32,16 @@ def get_index():
     x = current_page * recipes_per_page
     first_result_num = x - recipes_per_page + 1
     last_result_num = x if x < total_recipes else total_recipes
+    
+    
+    
 
     return render_template('index.html',
                            myHunCuisineDB=mongo.db.myHunCuisineDB.find(),
+                           categories=mongo.db.categories.find(),
                            recipes=recipes,
-                           category_name=category_name,
+                           recipe=recipe,
+                           get_categories=get_categories,
                            # Pagination & Sumarry
                            current_page=current_page,
                            pages=num_pages,
