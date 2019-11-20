@@ -166,3 +166,11 @@ nav {
         margin: auto;
     }
 }
+
+.add {
+    cursor: pointer;
+}
+
+.remove {
+    cursor: pointer;
+}

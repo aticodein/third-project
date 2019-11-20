@@ -21,29 +21,45 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
+          <i class="material-icons prefix">pan_tool</i>
+          <select id="allergens" name="allergens_types">
+              <option value="{{allergens_types}}" disabled selected>Allergens</option>
+                {% for allergy in allergens %}
+                    {% if allergy.allergens_types == recipe.allergens_types %}
+                     <option value="{{allergy.allergens_types}}" selected >{{allergy.allergens_types|upper}}</option>
+                    {% else %}
+                     <option value="{{allergy.allergens_types}}">{{allergy.allergens_types|upper}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+          <label>Select allergens</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
           <i class="material-icons prefix">edit</i>
-          <input id="recipe_title" name="recipe_title" type="text" class="validate" value="{{recipe.recipe_title}}">
+          <input id="recipe_title" name="recipe_title" type="text" class="validate" value="{{recipe.recipe_title}}" required>
           <label for="recipe_title">Recipe Title</label>
         </div>
     
     
         <div class="input-field col s12">
           <i class="material-icons prefix">format_align_left</i>
-          <input type="text" name="recipe_ingredients" id="recipe_ingredients" class="materialize-textarea" value="{{recipe.recipe_ingredients}}">
+          <input type="text" name="recipe_ingredients" id="recipe_ingredients" class="materialize-textarea" value="{{recipe.recipe_ingredients}}" required>
           <label for="recipe_ingredients">Ingredients</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">hourglass_empty</i>
-          <input type="text" name="recipe_preparation" id="recipe_preparation" class="materialize-textarea" value="{{recipe.recipe_preparation}}">
+          <input type="text" name="recipe_preparation" id="recipe_preparation" class="materialize-textarea" value="{{recipe.recipe_preparation}}" required>
           <label for="recipe_preparation">Preparation</label>
         </div>
      </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">picture_in_picture</i>
-          <input type="text" name="img_url" id="img_url" class="materialize-textarea" required>
+          <input type="text" name="img_url" id="img_url" class="materialize-textarea" value="{{recipe.img_url}}" required>
           <label for="recipe_preparation">Your picture URL</label>
         </div>
      </div>
@@ -62,7 +78,6 @@
                      <i class="material-icons right">free_breakfast</i>
                    </button>
      </div>
-      </div>
     </form>
   </div>
 

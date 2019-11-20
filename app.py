@@ -14,9 +14,12 @@ mongo = PyMongo(app)
 
 @app.route('/')
 @app.route("/index", methods=['POST', 'GET'])
+
+
     
 def get_index():
-    categories = mongo.db.categories.find()
+    
+    category_name = mongo.db.categories.find()
 
     # Pagination
     current_page = int(request.args.get('current_page', 1))
@@ -34,7 +37,7 @@ def get_index():
     return render_template('index.html',
                            myHunCuisineDB=mongo.db.myHunCuisineDB.find(),
                            recipes=recipes,
-                           categories=categories,
+                           category_name=category_name,
                            # Pagination & Sumarry
                            current_page=current_page,
                            pages=num_pages,
@@ -84,6 +87,10 @@ def add_recipe():
 def insert_recipe():
     myHunCuisineDB = mongo.db.myHunCuisineDB
     myHunCuisineDB.insert_one(request.form.to_dict())
+    my_data = request.form.to_dict()
+    recipe_ingredients = [mongo.db.recipe_ingredients.split]
+    
+    print(recipe_ingredients)
     return redirect(url_for('get_myHunCuisineDB'))
     
 @app.route('/insert_category', methods=['POST'])    
@@ -112,7 +119,7 @@ def new_allergens():
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.myHunCuisineDB.find_one({"_id":ObjectId(recipe_id)})
-    return render_template('editrecipe.html', recipe=the_recipe, get_categories=mongo.db.categories.find(), page_title="Edit Recipes")
+    return render_template('editrecipe.html', recipe=the_recipe, get_categories=mongo.db.categories.find(), allergens=mongo.db.allergens.find(), page_title="Edit Recipes")
 
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
@@ -174,7 +181,10 @@ def edit_allergens(allergens_id):
                            allergens=mongo.db.allergens.find_one(
                            {'_id': ObjectId(allergens_id)}))                           
  
- 
+@app.route('/filter_by_category/<selected_category>')
+def filter_by_category(selected_category):
+    selected_category = mongo.db.categories.find({"_id":ObjectId()})
+    return render_template('editrecipe.html', get_categories=mongo.db.categories.find(), page_title="Select By Category")
  
    
     
