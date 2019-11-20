@@ -7,7 +7,7 @@
     <div class="row">
     <form action="{{ url_for('get_index') }}" class="col s6 offset-s3">
                 <div class="input-field category-filter col s12 m4">
-                    <select id="category_filter" name="category_filter">
+                    <select id="category_filter" name="category_name">
                         <option value="" selected>No Filter</option>
                         {% for categ in get_categories %}
                            {% if categ.category_name == recipes.category_name %}
