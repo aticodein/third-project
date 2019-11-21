@@ -5,11 +5,11 @@
 <!--Filters-->
 <div class="row">
     <div class="row">
-    <form action="{{ url_for('get_recipes') }}" method="GET" class="col s6 offset-s3">
+    <form action="{{ url_for('get_recipes') }}" class="col s6 offset-s3">
                 <div class="input-field category-filter col s12 m4">
-                    <select id="category_filter" name="category_name">
+                    <select id="category_name" name="category_name">
                         <option value="" selected>No Filter</option>
-                        {% for categ in get_categories %}
+                        {% for categ in get_category %}
                            {% if categ.category_name == recipes.category_name %}
                              <option value="{{categ.category_name}}" selected >{{categ.category_name|upper}}</option>
                            {% else %} 
@@ -29,26 +29,23 @@
         </div>
         </div>
 
-{% for card in recipes %}
+{% for recipe in recipes %}
 <div class="row">
     <div class="col s12 m6">
       <div class="card small">
         <div class="card-image">
-          <img src={{card.img_url}}>
-          <span class="card-title">{{card.recipe_title|upper}}</span>
+          <img src={{recipe.img_url}}>
+          <span class="card-title">{{recipe.recipe_title|upper}}</span>
           <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
         </div>
         <div class="card-content">
-          <p>{{card.category_name|upper}}</p>
+          <p>{{recipe.category_name|upper}}</p>
         </div>
        
       </div>
     </div>
   </div>
 {% endfor %}
-
-
-
 
 
 

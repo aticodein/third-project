@@ -56,22 +56,13 @@ def get_index():
 
 @app.route('/recipes')
 def get_recipes():
-  
-    filter ={}
     
-   
-    filter = request.args.to_dict()
+    categoryname = request.form.get("category_name")
+    recipes = mongo.db.myHunCuisineDB.find({'category_name': categoryname })
 
-    
-    
-    recipes = mongo.db.myHunCuisineDB.find(filter)
     get_categories = mongo.db.categories.find()
     
-    
-    return render_template("recipes.html",
-                            get_categories=get_categories,
-                            recipes=recipes,
-                            page_title="Recipes") 
+    return render_template("recipes.html", recipes=recipes, get_categories=get_categories, page_title="Recipes")                        
     
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
