@@ -1,12 +1,55 @@
 {% extends 'base.html' %}{% block content %}
 
-<h3 class="center-align">{{ page_title }}</h3>
+   <h3 class="center-align">{{ page_title }}</h3>
 
-<div class="carousel">
-    {% for images in myHunCuisineDB %}
-     <a class="carousel-item" href="#"><p> {{images.recipe_title|upper}} </p><img src={{images.img_url}}></a>
-    {% endfor %}
-</div> 
+<!--Filters-->
+<div class="row">
+    <div class="row">
+    <form action="{{ url_for('get_recipes') }}" method="GET" class="col s6 offset-s3">
+                <div class="input-field category-filter col s12 m4">
+                    <select id="category_filter" name="category_name">
+                        <option value="" selected>No Filter</option>
+                        {% for categ in get_categories %}
+                           {% if categ.category_name == recipes.category_name %}
+                             <option value="{{categ.category_name}}" selected >{{categ.category_name|upper}}</option>
+                           {% else %} 
+                             <option value="{{categ.category_name}}">{{categ.category_name|upper}}</option>
+                           {% endif %} 
+                       {% endfor %}
+                        </select>
+                    <label for="category_filter">Filter By Category</label>
+                </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                     <i class="material-icons right">free_breakfast</i>
+                                   </button>
+                </div>
+            </form>    
+        </div>
+        </div>
+
+{% for card in recipes %}
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card small">
+        <div class="card-image">
+          <img src={{card.img_url}}>
+          <span class="card-title">{{card.recipe_title|upper}}</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>{{card.category_name|upper}}</p>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+
+
+
 
 
 {% endblock %}

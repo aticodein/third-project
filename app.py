@@ -13,7 +13,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route("/index", methods=['POST', 'GET'])
+@app.route("/index", methods=['POST'])
 
 def get_index():
     
@@ -26,6 +26,12 @@ def get_index():
     recipes_per_page=4
     total_recipes = mongo.db.myHunCuisineDB.count()
     num_pages = range(1, int(math.ceil(total_recipes / recipes_per_page)) + 1)
+    
+    
+    recipes = mongo.db.myHunCuisineDB.find().skip(
+       (current_page - 1) * recipes_per_page).limit(recipes_per_page)
+    
+    
   
     # Summary - (example) 'showing 1 - 4 of all results'
     x = current_page * recipes_per_page
@@ -33,12 +39,8 @@ def get_index():
     last_result_num = x if x < total_recipes else total_recipes
     
     #filter_category = request.args.to_dict()
-    filter_category = request.form['category_name']
-    print(filter_category)
     
-    
-    recipes = mongo.db.myHunCuisineDB.find(filter_category).skip(
-       (current_page - 1) * recipes_per_page).limit(recipes_per_page)
+   
 
     return render_template('index.html',
                            myHunCuisineDB=mongo.db.myHunCuisineDB.find(),
@@ -54,7 +56,22 @@ def get_index():
 
 @app.route('/recipes')
 def get_recipes():
-    return render_template("recipes.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Recipes") 
+  
+    filter ={}
+    
+   
+    filter = request.args.to_dict()
+
+    
+    
+    recipes = mongo.db.myHunCuisineDB.find(filter)
+    get_categories = mongo.db.categories.find()
+    
+    
+    return render_template("recipes.html",
+                            get_categories=get_categories,
+                            recipes=recipes,
+                            page_title="Recipes") 
     
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
