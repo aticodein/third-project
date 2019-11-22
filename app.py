@@ -13,7 +13,7 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route("/index", methods=['POST'])
+@app.route("/index", methods=['GET', 'POST'])
 
 def get_index():
     
@@ -54,15 +54,23 @@ def get_index():
                            last_result_num=last_result_num,
                            page_title="Main Page")
 
-@app.route('/recipes')
+@app.route('/recipes',  methods=['GET', 'POST'])
 def get_recipes():
-    
-    categoryname = request.form.get("category_name")
-    recipes = mongo.db.myHunCuisineDB.find({'category_name': categoryname })
-
+    if request.method == 'POST':
+       dropdown = request.form.get("category_name")
+       
+       recipes = mongo.db.myHunCuisineDB.find({ "category_name": dropdown })
+    else:
+       recipes = mongo.db.myHunCuisineDB.find() 
     get_categories = mongo.db.categories.find()
     
-    return render_template("recipes.html", recipes=recipes, get_categories=get_categories, page_title="Recipes")                        
+    
+    
+    return render_template("recipes.html", recipes=recipes, get_categories=get_categories, page_title="Recipes")    
+    
+    
+    
+    
     
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
