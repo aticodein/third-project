@@ -6,7 +6,7 @@
 
 <!--Recipes with Pagination-->
  
-<section>
+
   <!--Summary-->
     {% if recipes.count() == 0 %}
     <div class="center">
@@ -45,38 +45,29 @@
     </ul>
 
     <!--Recipes-->
- <div class="container center-align">
-<section class="row">
         {% for rec in recipes %}
-        <div class="col s10">
-            <strong> Of {{rec.category_name|upper}} Category : </strong> <br>
-            <strong> {{rec.recipe_title|upper}} 
-            <p class="favourite"> {% if rec.is_favourite == "on" %} My Favourite Recipe {% endif %} </p>
-            </strong>
-            <img class="center-align postcard-image" src={{rec.img_url}} alt="image">
-            <div  class="ingredients row col s12">
-                <span>Ingredients: <br>
-                    {{rec.recipe_ingredients|upper}}
-                </span>
-            </div>    
-                <br>
-            <div  class="preparation row col s12">
-                <span>Preparation: <br>
-                    {{rec.recipe_preparation|lower}} 
-                </span>
-               
+<div class="container">
+    <div class="row">         
+      <div class="card col s6 offset-s3 small">
+            <div class="card-image">
+              <img src={{rec.img_url}} alt="image">
+              <span class="card-title"><strong> {{rec.recipe_title|upper}}</strong></span>
             </div>
-        </div>
-        <div  class="hr row col s12">
-        <hr>
-        </div>
-        {% endfor %}
-    </section>
-</div> 
-
+            <div class="card-content" style="overflow-y: scroll; height:400px;">
+              <span><strong>Category: {{rec.category_name|upper}}</strong></span>  <br>  
+              <span><strong>Ingredients:</strong> {{rec.recipe_ingredients|upper}} </span> <br>     
+              <span><strong>Preparation:</strong> {{rec.recipe_preparation|lower}} </span> <br>
+              <p> {% if rec.is_favourite == "on" %} My Favourite Recipe {% endif %} </p>
+            </div>
+          </div>
+    </div> 
+</div>
+        
+ 
+    {% endfor %}
     
     {% endif %}  
-</section>
+
 
 
 {% endblock %}

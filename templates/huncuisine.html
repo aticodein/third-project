@@ -4,13 +4,19 @@
 
 <h3 class="center-align">{{ page_title }}</h3>
 
-<div class="container">
-    <ul class="ul-collapsible collapsible" data-collapsible="accordion">
-        {% for cousine in myHunCuisineDB %}
-        <li class="li-collapsible">
-            <div id="recipe-header" class="collapsible-header">
-                <div class="recipe_header col s6">
-                    <strong> {{cousine.recipe_title|upper}} </strong> <br> <img class="postcard-image" src={{cousine.img_url}} alt="image">
+        
+    <div class="container">
+      <div class="row">
+          {% for cousine in myHunCuisineDB %}
+        <div class="col s12 m6">
+         
+                <div class="card medium s6">
+                    
+                    <div class="card-image">
+                        <img src={{cousine.img_url}} alt="image">
+                     <span class="card-title"><strong> {{cousine.recipe_title|upper}}</strong></span>
+                    </div>
+                    
                     <div class="row s12">
                         <div class="col s3 offset-s1">
                             <a href="{{ url_for('delete_recipe', recipe_id=cousine._id)}}" onclick="return checkDelete()" class="waves-effect waves-light btn btn_small red">delete</a>
@@ -20,21 +26,12 @@
                         </div>
                     </div>
                 </div>
-            </div>    
-        
-            <div id="recipe-body" class="collapsible-body">
             
-                <span>
-                                        {{cousine.recipe_ingredients|upper}}
-                                    </span>
-                <br>
-                <span>
-                                        {{cousine.recipe_preparation}}
-                                    </span>
-            </div>
-        </li>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </div>
+
+
 
 {% endblock %}
