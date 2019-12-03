@@ -2,7 +2,7 @@
 
 <h3 class="center-align">{{ page_title }}</h3>
 <div class="row">
-    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s4 offset-s4">
+    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s8 offset-s2">
       
       <div class="row">
         <div class="input-field col s12">
@@ -55,9 +55,9 @@
         </div>
       <div class="row">
         <div class="input-field col s12">
-          <i class="material-icons prefix">picture_in_picture</i>
+          <i class="material-icons prefix" id="add-default-url" style="cursor: pointer;">picture_in_picture</i>
           <input type="text" name="img_url" id="img_url" class="materialize-textarea" required>
-          <label for="recipe_preparation">Your picture URL</label>
+          <label for="recipe_preparation">Your picture URL. Click on the icon for default URL.</label>
         </div>
         </div>  
       <div class="row">

@@ -17,7 +17,7 @@
     
 <header>
   <div class="navbar-fixed">  
-    <nav>
+    <nav style="background-color: #ee6e22;">
         <div class="nav-wrapper">
             <div class="truncate"><a href="/index" class="brand-logo" class="brand-logo" style="padding-left: 10px;">Hungarian Cuisine</a></div>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -40,7 +40,7 @@
 
 <!--Side Nav-->
 
-<ul class="side-nav" id="mobile-demo">
+<ul class="side-nav" id="mobile-demo" style="max-width: 210px; max-height: 300px;">
                 <li><a href="/index">Home</a></li>
                 <li><a href="{{ url_for('get_recipes')}}">Recipes</a></li>
                 <li><a href="{{ url_for('get_myHunCuisineDB')}}">Edit Recipes</a></li>
@@ -54,7 +54,7 @@
     
   
     {% block content %} {% endblock %} 
-<footer class="page-footer">
+<footer class="page-footer" style="background-color: #ee6e22;">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">

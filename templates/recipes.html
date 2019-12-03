@@ -14,7 +14,7 @@
                              <option value="{{categ.category_name}}" selected >{{categ.category_name|upper}}</option>
                            {% else %} 
                              <option value="{{categ.category_name}}">{{categ.category_name|upper}}</option>
-                           {% endif %} 
+                           {% endif %}
                        {% endfor %}
                         </select>
                     <label for="category_filter">Filter By Category</label>
@@ -31,25 +31,34 @@
                                    </button></a>
         </div>
         </div>
+        
+
+<!--Display Recipes-->
 {% for recipe in recipes %}
+<div class="container">
 <div class="row">
-<div class="row col s3">
-    <div class="col s10">
+    <div class="col s12 m8 offset-m2 l8 offset-l2">
       <div class="card small">
         <div class="card-image">
           <img src={{recipe.img_url}}>
-          <span class="card-title">{{recipe.recipe_title|upper}}</span>
         </div>
         <div class="card-content">
-          <p>{{recipe.category_name|upper}}</p>
+          <p>Title: {{recipe.recipe_title|upper}}</p>
+          <p>Category: {{recipe.category_name|upper}}</p>
         </div>
        
       </div>
     </div>
-  </div>
-{% endfor %}
+</div>
+</div>
+ {% endfor %} 
+ 
+
+  
+{% endblock %}  
 
 
 
-{% endblock %}
+
+
 

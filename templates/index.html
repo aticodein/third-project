@@ -1,9 +1,5 @@
 {% extends 'base.html' %}{% block content %}
 
-    <h3 class="center-align">{{ page_title }}</h3>
-    
-
-
 <!--Recipes with Pagination-->
  
 
@@ -48,7 +44,7 @@
         {% for rec in recipes %}
 <div class="container">
     <div class="row">         
-      <div class="card col s6 offset-s3 small">
+      <div class="card small col s12 m8 offset-m2 l8 offset-l2">
             <div class="card-image">
               <img src={{rec.img_url}} alt="image">
               <span class="card-title"><strong> {{rec.recipe_title|upper}}</strong></span>
