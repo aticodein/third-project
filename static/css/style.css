@@ -2,3 +2,20 @@ body {
     background-color: #f0ed5b;
 }
 
+.octocat { 
+    color: black;
+    font-size: 3em;
+}
+
+.cloud {
+    font-size: 2em;
+}
+
+.linkedin {
+    color: black;
+    font-size: 3em;
+}
+
+.python {
+    font-size: 2em;
+}

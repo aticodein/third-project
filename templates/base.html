@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
@@ -49,9 +51,36 @@
             </ul>
 
     <h2 class="center-align">Hungarian Recipes</h2>
+    
   
     {% block content %} {% endblock %} 
-  
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text"><i class="fab fa-python python left"></i><i class="material-icons left cloud">cloud_circle</i>Cloud Computing</h5>
+                <p class="grey-text text-lighten-4"></p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text"></h5>
+                <ul>
+                  <li><p class="grey-text text-lighten-4">Materials and instructions provided by:</p>
+                   <a href="https://codeinstitute.net/" target="_blank">
+                    <img src="https://courses.codeinstitute.net/static/codeintitute-ginkgo-rg/images/logo.d6533fc5cf3e.svg" alt="image"></a></li>
+                  <li><p class="grey-text text-lighten-4">Github Repository</p><a href="https://github.com/aticodein/third-project" target="_blank"><i class="fab fa-github octocat"></i></a></li>
+                  <li><p class="grey-text text-lighten-4">LinkedIn</p><a href="https://www.linkedin.com/in/attila-szal%C3%B3ki-9b205b36/" target="_blank"><i class="fab fa-linkedin linkedin"></i></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+             <p>© 2019 Copyright by Attila Szaloki</p>
+             <p>This website and content created for study purposes ONLY!</p>
+            <a class="grey-text text-lighten-4 right" href=""></a>
+            </div>
+          </div>
+        </footer>  
     
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
