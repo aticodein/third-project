@@ -44,12 +44,12 @@
         {% for rec in recipes %}
 <div class="container">
     <div class="row">         
-      <div class="card small col s12 m8 offset-m2 l8 offset-l2">
+      <div class="card small col s12 m8 offset-m2 l8 offset-l2" style="height:450px;">
             <div class="card-image">
               <img src={{rec.img_url}} alt="image">
               <span class="card-title"><strong> {{rec.recipe_title|upper}}</strong></span>
             </div>
-            <div class="card-content" style="overflow-y: scroll; height:400px;">
+            <div class="card-content" style="overflow-y: scroll; height:300px;">
               <span><strong>Category: {{rec.category_name|upper}}</strong></span>  <br>  
               <span><strong>Ingredients:</strong> {{rec.recipe_ingredients|upper}} </span> <br>     
               <span><strong>Preparation:</strong> {{rec.recipe_preparation|lower}} </span> <br>

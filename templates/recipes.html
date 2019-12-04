@@ -38,13 +38,15 @@
 <div class="container">
 <div class="row">
     <div class="col s12 m8 offset-m2 l8 offset-l2">
-      <div class="card small">
+      <div class="card small" style="height:450px;">
         <div class="card-image">
           <img src={{recipe.img_url}}>
         </div>
-        <div class="card-content">
+        <div class="card-content" style="overflow-y: scroll;">
           <p>Title: {{recipe.recipe_title|upper}}</p>
           <p>Category: {{recipe.category_name|upper}}</p>
+          <p>Ingredients: {{recipe.recipe_ingredients|upper}}</p>
+          <p>Preparation: {{recipe.recipe_preparation|lower}}</p>
         </div>
        
       </div>

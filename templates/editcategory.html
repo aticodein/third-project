@@ -1,7 +1,7 @@
 {% extends 'base.html'%}{% block content %}
 <h3 class="center-align">Edit Category</h3>
 <div class="row">
-    <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s4 offset-s4">
+    <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s10 m8 offset-m2">
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_dining</i>

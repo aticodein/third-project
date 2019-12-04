@@ -1,4 +1,4 @@
-// Materialize Framework JQuery Iniitialisations  
+// Materialize Framework JQuery Initialisations  
  
 $(document).ready(function() {
     $('select').material_select();
@@ -12,8 +12,8 @@ function checkDelete(){
    return confirm("Are you sure you want to delete this?");
 }
 
-
-// Add / Edit  Form - Fill 'Image Url' input box with default value
+    
+// Fill 'Your picture URL' input box with default value at addrecipe.html form
     $('#add-default-url').click(function() {
         $('#img_url').val("http://glutenfreedelivers.com/template/images/white/glutenfree4.jpg").focus();
     });    
