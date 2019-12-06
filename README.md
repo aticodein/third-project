@@ -19,6 +19,17 @@
 - Find all recipes or organised views for example see recipes by categories.
 - Use all functionality at any device
 
+## Features
+#### Existing Features
+##### This webpage is responsive clear view and all buttons and functions working on mobile devices. User of pge can create new rwcipes edt them, create new categories and delet them.
+#### Features Left to Implement
+##### The delete functionality was more useful if users can delete their only creations so user login would be the solution.
+##### Also another feature idea to put sidebar at base.html for more links and advertisements for business purpose.
+#### Technologies Used
+##### For CSS grid I used Materialize framework and its own JQuery.
+##### For data transfer Falsk, Jinja, pyMongo and for storage Atlas MongoDB
+##### Back-end language is Python. The recipe filter by categories and recipes pagination are the two functionality for demonstrate the understanding the python language and its logic.
+
 ##### As the admin or owner of this page, I want to:
 - Able to see all data stored at database by users.
 - Modify and use these data from a safe storage.
@@ -32,7 +43,7 @@
 ##### Secure keys, usernames and passwords in production should be never committed to github. As it suggested the Atlas MongoDB connection string to the .bashrc file:
 
 ```
-export MONGO_URI = " long strin with name and password "
+export MONGO_URI = " long string with name and password "
 ```
 ##### and put this in the app:
 ```
