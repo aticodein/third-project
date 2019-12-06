@@ -24,7 +24,26 @@
 - Modify and use these data from a safe storage.
 - Create new functionalities for the page.
 
-## Acknowledgements
+## Deployment
+##### For deployment I have used Heroku and installed heroku to Github. This made the checking very easy after every repo push the Heroku automaticly\refereshed the page.
+##### [Hungarian Cuisine](https://hungarian-cuisine.herokuapp.com/)
+##### How to make difference between the deployed and production version
+
+##### Secure keys, usernames and passwords in production should be never committed to github. As it suggested the Atlas MongoDB connection string to the .bashrc file:
+
+```
+export MONGO_URI = " long strin with name and password "
+```
+##### and put this in the app:
+```
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+```
+
+## Credits
+### Code validation
+##### For HTML and CSS language I have used [W3 validator](https://jigsaw.w3.org/css-validator/)
+##### for JavaScript language [JSHint](https://jshint.com/) 
+### Acknowledgements
 
 ##### Thank you for the help Ali Ashik Mentor reliable and supporting, my slack friends Miklos Sarosi and Dave laffan 
 ##### Tutor support screen sharing session is very useful
