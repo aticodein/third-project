@@ -19,11 +19,13 @@
 - Find all recipes or organised views for example see recipes by categories.
 - Use all functionality at any device
 
-##### As the admin or owner of this page:
+##### As the admin or owner of this page, I want to:
 - Able to see all data stored at database by users.
 - Modify and use these data from a safe storage.
 - Create new functionalities for the page.
 
+## Acknowledgements
 
-
-
+##### Thank you for the help Ali Ashik Mentor reliable and supporting, my slack friends Miklos Sarosi and Dave laffan 
+##### Tutor support screen sharing session is very useful
+##### Thank you
