@@ -4,7 +4,7 @@
 ##### Created with Python, Flask and MnogoDB and the purpose of this project is to create an interactive website with database of recipes that allows the user to create, read, update and delete (CRUD) recipes.
 
 ##### This project only for demonstrate the usage of Python language helped by Flask and Jinja and build an interactive application  for certain functionality.
-##### Website deployed at [Hungarian Cuisine](https://hungarian-cuisine.herokuapp.com/)
+##### Website deployed on Heroku at [Hungarian Cuisine](https://hungarian-cuisine.herokuapp.com/)
 
 ## UX
 
@@ -19,22 +19,21 @@
 - Find all recipes or organised views for example see recipes by categories.
 - Use all functionality at any device
 
-## Features
-#### Existing Features
-##### This webpage is responsive clear view and all buttons and functions working on mobile devices. User of pge can create new rwcipes edt them, create new categories and delet them.
-#### Features Left to Implement
-##### The delete functionality was more useful if users can delete their only creations so user login would be the solution.
-##### Also another feature idea to put sidebar at base.html for more links and advertisements for business purpose.
-#### Technologies Used
-##### For CSS grid I used Materialize framework and its own JQuery.
-##### For data transfer Falsk, Jinja, pyMongo and for storage Atlas MongoDB
-##### Back-end language is Python. The recipe filter by categories and recipes pagination are the two functionality for demonstrate the understanding the python language and its logic.
-
 ##### As the admin or owner of this page, I want to:
 - Able to see all data stored at database by users.
 - Modify and use these data from a safe storage.
 - Create new functionalities for the page.
 
+## Features
+#### Existing Features
+##### This webpage is responsive clear view and all buttons and functions working on mobile devices. User of page can create new recipes edit them, create new categories and delet them.
+#### Features Left to Implement
+##### The delete functionality was more useful if users can delete their only creations so user login would be the solution. At this time only a JavaScript warning ask to be careful with delete.
+##### Also another feature idea to put sidebar at base.html for more links and advertisements for business purpose.
+#### Technologies Used
+##### For CSS grid I used Materialize framework and its JQuery.
+##### For data transfer Falsk, Jinja, pyMongo and for storage Atlas MongoDB
+##### Back-end language is Python. The recipe filter by categories and recipes pagination are the two functionality for demonstrate the understanding the python language and its logic.
 ## Deployment
 ##### For deployment I have used Heroku and installed heroku to Github. This made the checking very easy after every repo push the Heroku automaticly\refereshed the page.
 ##### [Hungarian Cuisine](https://hungarian-cuisine.herokuapp.com/)
@@ -49,13 +48,36 @@ export MONGO_URI = " long string with name and password "
 ```
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 ```
-
-## Credits
+# Testing
+##### AWS C9 inbuilt hosting feature make ti easy to test every changes promt. During the development I have used this to check 
+##### back-en and fron-end changes as well.
+##### The python terminal and browser console to cach bugs were monitored during development.
+##### Family members and friends tested the functionality at different devices sach as Samsung A7 phone, iPhone 8, Samsung tablet and APPLE 13.3" MacBook Air (2017).
+# Deployment
+## Deployment To Heroku [Hungarian Cuisine](https://hungarian-cuisine.herokuapp.com/)
+##### To deploy to Heroku I have used AWS Cloud9 IDE to develop this application before deplyment I have turned off Flask debugging by setting debug=False
+##### The Requirements file was created with the command:
+```
+sudo pip3 freeze --local > requirements.txt.
+```
+##### Followd the videos to create a Procfile: web: python app.py. Through this Heroku find the application.
+##### Frequently pushed the codes to GitHub master branch to make sure all changes are safely stored.
+##### Database was used MnogoDB as structured: 
+```
+_id:5d9d159b1e4fa8dcb734f2ca
+category_name:"soups and starters"
+allergens_types:"milk"
+recipe_title:"Cold Fruit Soup"
+img_url:"http://rendeles.introcafe.hu/images/products/originals/8.jpg"
+recipe_ingredients:"milk, flour, sugar"
+recipe_preparation:"boil fruits with sugar add powder and stir"
+is_favourite:"on"
+```
 ### Code validation
 ##### For HTML and CSS language I have used [W3 validator](https://jigsaw.w3.org/css-validator/)
 ##### for JavaScript language [JSHint](https://jshint.com/) 
 ### Acknowledgements
-
+## Credits
 ##### Thank you for the help Ali Ashik Mentor reliable and supporting, my slack friends Miklos Sarosi and Dave laffan 
 ##### Tutor support screen sharing session is very useful
 ##### Thank you
