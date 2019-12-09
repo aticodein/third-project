@@ -30,17 +30,30 @@
 #### Features Left to Implement
 ##### The delete functionality was more useful if users can delete their only creations so user login would be the solution. At this time only a JavaScript warning ask to be careful with delete.
 ##### Also another feature idea to put sidebar at base.html for more links and advertisements for business purpose.
-#### Technologies Used
+## Technologies Used
 ##### For CSS grid I used Materialize framework and its JQuery.
 ##### For data transfer Falsk, Jinja, pyMongo and for storage Atlas MongoDB
 ##### Back-end language is Python. The recipe filter by categories and recipes pagination are the two functionality for demonstrate the understanding the python language and its logic.
-## Deployment
-##### For deployment I have used Heroku and installed heroku to Github. This made the checking very easy after every repo push the Heroku automaticly\refereshed the page.
+# Testing
+#### Planning
+##### In development I wanted to see all functionalities, design, and responsiveness: after I made some changes at AWS C9 EC2, also put the hosted page under crome developer tool.
+##### HTML, CSS code changes was made in Google Crome developer tool and copy and paste back to AWS C9 and after code was pushed also checked at Heroku hosted page.
+##### AWS C9 inbuilt hosting feature make ti easy to test every changes promt. During the development I have used this to check back-en and fron-end changes as well.
+##### The python terminal and browser console to cach bugs were monitored during development.
+##### Family members and friends tested the functionality and responsiveness at different devices sach as Samsung A7 phone, iPhone 8, Samsung tablet, APPLE 13.3, MacBook Air (2017) and Lenovo ideapad 110-15ACL with Widows 10.
+#### Manually tested to create a new recipe.
+1. Go to New Recipe at navigation bar
+2. Fill up the form. HTML validation for filling up all lines can not submit with empty lines
+3. For image url With Javascrip there is a defuolt url 
+4. Hit submit buttons
+5. Go to recipes page at navbar to check your new recipe
+
+##### For edit recipes same form will appear but prefilled lines and can be overwrite those and submit.
+# Deployment
+##### For deployment I have used Heroku. When I enabled the automated deployment from Heroku after every time the project was pushed to Github, the Heroku automaticly built the new version of the project.
 ##### [Hungarian Cuisine](https://hungarian-cuisine.herokuapp.com/)
-##### How to make difference between the deployed and production version
-
+#### How to make difference between the deployed and production version:
 ##### Secure keys, usernames and passwords in production should be never committed to github. As it suggested the Atlas MongoDB connection string to the .bashrc file:
-
 ```
 export MONGO_URI = " long string with name and password "
 ```
@@ -48,13 +61,6 @@ export MONGO_URI = " long string with name and password "
 ```
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 ```
-# Testing
-##### AWS C9 inbuilt hosting feature make ti easy to test every changes promt. During the development I have used this to check 
-##### back-en and fron-end changes as well.
-##### The python terminal and browser console to cach bugs were monitored during development.
-##### Family members and friends tested the functionality at different devices sach as Samsung A7 phone, iPhone 8, Samsung tablet and APPLE 13.3" MacBook Air (2017).
-# Deployment
-## Deployment To Heroku [Hungarian Cuisine](https://hungarian-cuisine.herokuapp.com/)
 ##### To deploy to Heroku I have used AWS Cloud9 IDE to develop this application before deplyment I have turned off Flask debugging by setting debug=False
 ##### The Requirements file was created with the command:
 ```
@@ -78,6 +84,8 @@ is_favourite:"on"
 ##### for JavaScript language [JSHint](https://jshint.com/) 
 ### Acknowledgements
 ## Credits
-##### Thank you for the help Ali Ashik Mentor reliable and supporting, my slack friends Miklos Sarosi and Dave laffan 
-##### Tutor support screen sharing session is very useful
-##### Thank you
+##### Acknowledgements: Thank you for the help Ali Ashik Mentor reliable and supporting, my slack friends Miklos Sarosi and Dave laffan 
+##### Tutor support screen sharing session is very useful at CodeInstitute
+##### Content for the text for section recipes was copied from: . Media: images from same website.
+
+

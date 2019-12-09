@@ -6,12 +6,13 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-
+# Secret key changed
 app.config["MONGO_DBNAME"] = 'myHunCuisine'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
 
+# Render main page as index.html
 @app.route('/')
 @app.route("/index", methods=['GET', 'POST'])
 
@@ -42,7 +43,8 @@ def get_index():
                            first_result_num=first_result_num,
                            last_result_num=last_result_num,
                            page_title="Main Page")
-
+                           
+# Recipe page with filter function
 @app.route('/recipes',  methods=['GET', 'POST'])
 def get_recipes():
     if request.method == 'POST':
@@ -56,15 +58,13 @@ def get_recipes():
     
     
     return render_template("recipes.html", recipes=recipes, get_categories=get_categories, page_title="Recipes")    
-    
-    
-    
-    
-    
+
+# Main recipes storage
 @app.route('/myHunCuisineDB')
 def get_myHunCuisineDB():
     return render_template("huncuisine.html", myHunCuisineDB=mongo.db.myHunCuisineDB.find(), page_title="Edit Recipes")
-     
+
+# Categories     
 @app.route('/get_categories')
 def get_categories():
     return render_template('managecat.html', categories=mongo.db.categories.find())
@@ -72,7 +72,8 @@ def get_categories():
 @app.route('/get_categories_only')
 def get_categories_only():
     return render_template('categories.html', categories=mongo.db.categories.find())
-    
+
+# Allergens created to practice the useful codes from categories    
 @app.route('/get_allergens_only')
 def get_allergens_only():
     return render_template('allergens.html', allergens=mongo.db.allergens.find())    
@@ -90,11 +91,13 @@ def get_base():
     return render_template("base.html")
     
 print(get_index)    
-    
+
+# New recipes    
 @app.route('/add_recipe')
 def add_recipe():
     return render_template("addrecipe.html", get_categories=mongo.db.categories.find(), allergens=mongo.db.allergens.find(), page_title="Add Your New Recipe")
-    
+
+# Edit recipes with form to insert new updated info    
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     myHunCuisineDB = mongo.db.myHunCuisineDB
@@ -163,7 +166,8 @@ def update_recipe(recipe_id):
         'is_favourite':request.form.get('is_favourite')
     })
     return redirect(url_for('get_myHunCuisineDB')) 
-    
+
+# Delete and edit recipes, categories and allergens    
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.myHunCuisineDB.remove({'_id': ObjectId(recipe_id)})
@@ -192,7 +196,8 @@ def edit_allergens(allergens_id):
     return render_template('editallergens.html',
                            allergens=mongo.db.allergens.find_one(
                            {'_id': ObjectId(allergens_id)}))                           
- 
+
+# Category dropdown for filter 
 @app.route('/filter_by_category/<selected_category>')
 def filter_by_category(selected_category):
     selected_category = mongo.db.categories.find({"_id":ObjectId()})
