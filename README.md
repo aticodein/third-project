@@ -86,6 +86,6 @@ is_favourite:"on"
 ## Credits
 ##### Acknowledgements: Thank you for the help Ali Ashik Mentor reliable and supporting, my slack friends Miklos Sarosi and Dave laffan 
 ##### Tutor support screen sharing session is very useful at CodeInstitute
-##### Content for the text for section recipes was copied from: . Media: images from same website.
+##### Content for the text for section recipes was copied from: https://www.thespruceeats.com/, https://www.tasteofhome.com, https://www.allrecipes.com. Media: images from same website.
 
 
